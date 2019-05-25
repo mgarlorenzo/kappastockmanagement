@@ -1,0 +1,113 @@
+swagger: '2.0'
+info:
+  version: "1.0.0"
+  title: "Processor Event API"
+  description: |
+    Provides RESTFull API to produce events on Coherence Datagrid
+
+host: localhost:7100
+basePath: /processor/api/v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /events:
+    x-summary: events
+    post:
+      summary: Creates a new user.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          description: The event to create.
+          schema:
+            $ref: '#/definitions/Event'
+      responses:
+        200:
+          description: Success
+        400:
+          $ref: '#/responses/400'
+        500:
+          $ref: '#/responses/500'
+
+# RESPONSES
+
+responses:
+  400:
+    description: Bad request
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        {
+          auditTimestamp: "2019-02-11T08:37:45.812Z",
+          code: 400,
+          message: "Malformed request syntax"
+        }
+  500:
+    description: Internal Server Error
+    schema:
+      $ref:
+        '#/definitions/Error'
+    examples:
+      application/json:
+        {
+          "auditTimestamp": "2019-02-11T08:37:45.812Z",
+          "code": 500,
+          "message": "Coherence Datagrid is down"
+        }
+
+# DEFINITIONS
+
+definitions:
+
+  #Event
+  Event:
+    title: Stock Event
+    type: object
+    properties:
+      id:
+        description: Event Id
+        type: integer
+        format: int64
+      store:
+        description: Store id code
+        type: integer
+        format: int32
+      sku:
+        description: Unique number assigned to a product
+        type: integer
+        format: int64
+      from:
+        description: Item location from
+        type: integer
+        format: int32
+      to:
+        description: Item location to
+        type: integer
+        format: int32
+
+  # <Global definitions>
+
+  #Error
+  Error:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      auditTimestamp:
+        type: string
+      errors:
+        type: array
+        items:
+          type: string
+

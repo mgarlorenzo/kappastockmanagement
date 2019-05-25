@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cache-config xmlns="http://xmlns.oracle.com/coherence/coherence-cache-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config http://xmlns.oracle.com/coherence/coherence-cache-config/1.3/coherence-cache-config.xsd">
+
+    <!-- COMMON CONFIGURATION -->
+    <defaults>
+        <scope-name>realtime</scope-name>
+        <serializer system-property="tangosol.coherence.serializer">pof</serializer>
+    </defaults>
+
+    <caching-scheme-mapping>
+        <cache-mapping>
+            <cache-name>stock</cache-name>
+            <scheme-name>distributed-stock-scheme</scheme-name>
+        </cache-mapping>
+        <cache-mapping>
+            <cache-name>events</cache-name>
+            <scheme-name>distributed-events-scheme</scheme-name>
+        </cache-mapping>
+    </caching-scheme-mapping>
+
+    <caching-schemes>
+        <!-- PROXY ING-1 -->
+        <proxy-scheme>
+            <service-name>extend-tcp-proxy-service</service-name>
+            <thread-count-max>12</thread-count-max>
+            <thread-count-min>4</thread-count-min>
+            <autostart>true</autostart>
+        </proxy-scheme>
+
+
+        <!-- STOCK -->
+        <distributed-scheme>
+            <scheme-name>distributed-stock-scheme</scheme-name>
+            <service-name>distributed-service</service-name>
+            <thread-count-max>36</thread-count-max>
+            <thread-count-min>36</thread-count-min>
+            <partition-count>257</partition-count>
+            <backup-count>1</backup-count>
+            <task-hung-threshold>20000</task-hung-threshold>
+            <task-timeout>15000</task-timeout>
+            <backing-map-scheme>
+                <read-write-backing-map-scheme>
+                    <internal-cache-scheme>
+                        <local-scheme>
+                            <eviction-policy>HYBRID</eviction-policy>
+                            <high-units>10000</high-units>
+                            <low-units>3000</low-units>
+                            <unit-calculator>BINARY</unit-calculator>
+                            <unit-factor>255</unit-factor>
+                            <expiry-delay>0</expiry-delay>
+                        </local-scheme>
+                    </internal-cache-scheme>
+                    <write-max-batch-size>20000</write-max-batch-size>
+                    <cachestore-scheme>
+                        <class-scheme>
+                            <class-name>org.jbcnconf.realtime.datagrid.store.NotificationCacheStore</class-name>
+                        </class-scheme>
+                    </cachestore-scheme>
+                    <write-delay>5s</write-delay>
+                    <write-batch-factor>0.9</write-batch-factor>
+                    <write-requeue-threshold>1000000</write-requeue-threshold>
+                </read-write-backing-map-scheme>
+            </backing-map-scheme>
+            <persistence>
+                <environment>default-active</environment>
+                <active-failure-mode>stop-service</active-failure-mode>
+            </persistence>
+            <partitioned-quorum-policy-scheme>
+                <scheme-ref>partitioned-cache-quorum</scheme-ref>
+            </partitioned-quorum-policy-scheme>
+            <autostart>true</autostart>
+        </distributed-scheme>
+
+
+        <!-- EVENTS -->
+        <distributed-scheme>
+            <scheme-name>distributed-events-scheme</scheme-name>
+            <service-name>distributed-service</service-name>
+            <thread-count-max>36</thread-count-max>
+            <thread-count-min>36</thread-count-min>
+            <partition-count>257</partition-count>
+            <backing-map-scheme>
+                <local-scheme>
+                    <eviction-policy>HYBRID</eviction-policy>
+                    <high-units>5000</high-units>
+                    <low-units>3000</low-units>
+                    <unit-calculator>BINARY</unit-calculator>
+                    <unit-factor>320</unit-factor>
+                    <expiry-delay>1H</expiry-delay>
+                </local-scheme>
+            </backing-map-scheme>
+            <persistence>
+                <environment>default-active</environment>
+                <active-failure-mode>stop-service</active-failure-mode>
+            </persistence>
+            <partitioned-quorum-policy-scheme>
+                <scheme-ref>partitioned-cache-quorum</scheme-ref>
+            </partitioned-quorum-policy-scheme>
+            <autostart>true</autostart>
+        </distributed-scheme>
+    </caching-schemes>
+</cache-config>

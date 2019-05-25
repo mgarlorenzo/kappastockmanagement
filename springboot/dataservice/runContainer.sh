@@ -1,0 +1,1 @@
+docker run -itd --name=dataservice --hostname=dataservice --net=jbcn-net -p 9080:9080 -e COH_CLUSTER_NAME=jbcn-coherence-cluster  jbcn/dataservice:1.0.0

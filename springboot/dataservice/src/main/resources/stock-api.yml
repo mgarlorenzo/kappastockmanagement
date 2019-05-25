@@ -1,0 +1,209 @@
+swagger: '2.0'
+info:
+  version: "1.0.0"
+  title: "Stock API"
+  description: |
+    Provides STOCK RESTFull API
+
+host: localhost:9080
+basePath: /dataservice/api/v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /stock/{storeId}:
+    x-summary: stock
+    get:
+      summary: Creates a new user.
+      consumes:
+        - application/json
+      parameters:
+        - name: storeId
+          in: path
+          required: true
+          description: Store Id
+          type: integer
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/StockResponseWrapper'
+        400:
+          $ref: '#/responses/400'
+        500:
+          $ref: '#/responses/500'
+
+# RESPONSES
+
+responses:
+  400:
+    description: Bad request
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        {
+          auditTimestamp: "2019-02-11T08:37:45.812Z",
+          code: 400,
+          message: "Malformed request syntax"
+        }
+  500:
+    description: Internal Server Error
+    schema:
+      $ref:
+        '#/definitions/Error'
+    examples:
+      application/json:
+        {
+          "auditTimestamp": "2019-02-11T08:37:45.812Z",
+          "code": 500,
+          "message": "Coherence Datagrid is down"
+        }
+
+# DEFINITIONS
+
+definitions:
+
+  #StockRfidResponseWrapper
+  StockResponseWrapper:
+    type: object
+    properties:
+      data:
+        description: Response data wrapper
+        type: array
+        items:
+          $ref: '#/definitions/Stock'
+      metadata:
+        $ref: '#/definitions/Metadata'
+    example:
+      data: [{
+               storeId: 53,
+               skus: [{
+                        sku: 000001,
+                        rfidLocations: [
+                        {rfidLocationId: 1, quantity: 10},
+                        {rfidLocationId: 2, quantity: 5}]
+                      }]
+             }]
+      metadata: {
+        apiVersion: "1.0",
+        requestTimestamp: "2019-02-11T08:20:39.097Z",
+        responseTimestamp: "2019-02-11T08:20:39.608Z",
+        self: "http://localhost:7100/dataservice/stock/53"
+      }
+
+  #Stock Entity
+  Stock:
+    title: Stock Entity
+    type: object
+    properties:
+      storeId:
+        description: Store id
+        type: integer
+        format: int32
+      skus:
+        description: Business product type code
+        type: array
+        items:
+          $ref: '#/definitions/Sku'
+
+  #Sku Entity
+  Sku:
+    title: Sku Entity
+    type: object
+    properties:
+      sku:
+        description:  Unique number assigned to a product
+        type: integer
+        format: int64
+      rfidLocations:
+        description: Items location
+        type: array
+        items:
+          $ref: '#/definitions/RfidLocation'
+
+  #Locations Entity
+  RfidLocation:
+    title: RFID Location
+    type: object
+    properties:
+      rfidLocationId:
+        description: Location id
+        type: integer
+        format: int32
+      quantity:
+        description: Stock quantity
+        type: integer
+        format: int32
+
+  # <Global definitions>
+
+  #Error
+  Error:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      auditTimestamp:
+        type: string
+      errors:
+        type: array
+        items:
+          type: string
+  #Metadata
+  Metadata:
+    title: metadata
+    type: object
+    properties:
+      apiVersion:
+        type: string
+      items_count:
+        type: integer
+        format: int64
+      items_from:
+        type: integer
+        format: int64
+      items_to:
+        type: integer
+        format: int64
+      items_total:
+        type: integer
+        format: int64
+      links:
+        type: array
+        items:
+          $ref: '#/definitions/Link'
+      page:
+        type: integer
+        format: int64
+      pages_total:
+        type: integer
+        format: int64
+      requestTimestamp:
+        type: string
+      responseTimestamp:
+        type: string
+      self:
+        type: string
+  Link:
+    title: link
+    type: object
+    properties:
+      self:
+        type: string
+      first:
+        type: string
+      last:
+        type: string
+      next:
+        type: string
+      prev:
+        type: string

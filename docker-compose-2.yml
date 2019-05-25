@@ -1,0 +1,63 @@
+version: '3.7'
+
+services:
+
+  ksql-server:
+    image: confluentinc/cp-ksql-server:5.2.0
+    container_name: ksql-server
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: "kafka:9092"
+      KSQL_APPLICATION_ID: "ksql-server-app"
+      KSQL_LISTENERS: http://ksql-server:8089
+      KSQL_KSQL_SERVICE_ID: "ksql-server-service"
+    ports:
+      - "8089:8088"
+
+  ksql-headless:
+    image: jbcn/ksql-headless:1.0.0
+    container_name: ksql-headless
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: "kafka:9092"
+      KSQL_APPLICATION_ID: " ksql-headless-app"
+      KSQL_LISTENERS: http://ksql-headless:8088
+      KSQL_KSQL_SERVICE_ID: " ksql-headless-service"
+      KSQL_KSQL_QUERIES_FILE: /queries/streams.sql
+    ports:
+       - "8088:8088"
+
+  logstash_movements: 
+     image: jbcn/logstash-movements:1.0.0
+     container_name: logstash-movements
+
+  logstash_stock: 
+    image: jbcn/logstash-stock:1.0.0
+    container_name: logstash-stock
+
+  datagrid:
+    image: jbcn/datagrid:1.0.0
+    container_name: datagrid
+    environment:
+      COH_CLUSTER_NAME: jbcn-coherence-cluster
+    ports:
+      - "7574:7574"
+
+  processor:
+    image: jbcn/processor:1.0.0
+    container_name: processor
+    environment:
+      COH_CLUSTER_NAME: jbcn-coherence-cluster
+    ports:
+      - "8080:8080"
+
+  dataservice:
+    image: jbcn/dataservice:1.0.0
+    container_name: dataservice
+    environment:
+      COH_CLUSTER_NAME: jbcn-coherence-cluster
+    ports:
+      - "9080:9080"
+
+networks:
+  default:
+    external:
+      name: jbcn-net

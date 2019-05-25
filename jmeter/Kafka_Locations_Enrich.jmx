@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Kafka_Locations_Enrich" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Kafka Params" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="proto_kafka" elementType="Argument">
+            <stringProp name="Argument.name">proto_kafka</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="host_kafka" elementType="Argument">
+            <stringProp name="Argument.name">host_kafka</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port_kafka" elementType="Argument">
+            <stringProp name="Argument.name">port_kafka</stringProp>
+            <stringProp name="Argument.value">8082</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="topic_kafka" elementType="Argument">
+            <stringProp name="Argument.name">topic_kafka</stringProp>
+            <stringProp name="Argument.value">LOCATIONS</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delay" elementType="Argument">
+            <stringProp name="Argument.name">delay</stringProp>
+            <stringProp name="Argument.value">200</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Kafka API" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1556624701000</longProp>
+        <longProp name="ThreadGroup.end_time">1556624701000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Controller Variable" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="number_1" elementType="Argument">
+              <stringProp name="Argument.name">number_1</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_2" elementType="Argument">
+              <stringProp name="Argument.name">number_2</stringProp>
+              <stringProp name="Argument.value">2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_3" elementType="Argument">
+              <stringProp name="Argument.name">number_3</stringProp>
+              <stringProp name="Argument.value">3</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_4" elementType="Argument">
+              <stringProp name="Argument.name">number_4</stringProp>
+              <stringProp name="Argument.value">4</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_5" elementType="Argument">
+              <stringProp name="Argument.name">number_5</stringProp>
+              <stringProp name="Argument.value">5</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_6" elementType="Argument">
+              <stringProp name="Argument.name">number_6</stringProp>
+              <stringProp name="Argument.value">6</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_7" elementType="Argument">
+              <stringProp name="Argument.name">number_7</stringProp>
+              <stringProp name="Argument.value">7</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_8" elementType="Argument">
+              <stringProp name="Argument.name">number_8</stringProp>
+              <stringProp name="Argument.value">8</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_9" elementType="Argument">
+              <stringProp name="Argument.name">number_9</stringProp>
+              <stringProp name="Argument.value">9</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="number_10" elementType="Argument">
+              <stringProp name="Argument.name">number_10</stringProp>
+              <stringProp name="Argument.value">10</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Msg Variable" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="loc_1" elementType="Argument">
+              <stringProp name="Argument.name">loc_1</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;1001&quot;, &quot;GPSLOCATION&quot;: &quot;40.463667,-3.74922&quot;, &quot;STORENAME&quot;: &quot;MARINEDA CITY&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_2" elementType="Argument">
+              <stringProp name="Argument.name">loc_2</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;2001&quot;, &quot;GPSLOCATION&quot;: &quot;35.86166,104.195397&quot;, &quot;STORENAME&quot;: &quot;CHAOYANG JOY CITY&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_3" elementType="Argument">
+              <stringProp name="Argument.name">loc_3</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;3001&quot;, &quot;GPSLOCATION&quot;: &quot;37.09024,-95.712891&quot;, &quot;STORENAME&quot;: &quot;NEWPORT CENTRE MALL&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_4" elementType="Argument">
+              <stringProp name="Argument.name">loc_4</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;4001&quot;, &quot;GPSLOCATION&quot;: &quot;-25.274398,133.775136&quot;, &quot;STORENAME&quot;: &quot;WESTFIELD BONDI JUNCTION&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_5" elementType="Argument">
+              <stringProp name="Argument.name">loc_5</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;5001&quot;, &quot;GPSLOCATION&quot;: &quot;-14.235004,-51.92528&quot;, &quot;STORENAME&quot;: &quot;GALERIAS MONTERREY&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_6" elementType="Argument">
+              <stringProp name="Argument.name">loc_6</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;6001&quot;, &quot;GPSLOCATION&quot;: &quot;36.204824,138.252924&quot;, &quot;STORENAME&quot;: &quot;ROPPONGI HILLS&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_7" elementType="Argument">
+              <stringProp name="Argument.name">loc_7</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;7001&quot;, &quot;GPSLOCATION&quot;: &quot;61.52401,105.318756 &quot;, &quot;STORENAME&quot;: &quot;EUROPEISKIY&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_8" elementType="Argument">
+              <stringProp name="Argument.name">loc_8</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;8001&quot;, &quot;GPSLOCATION&quot;: &quot;51.165691,10.451526&quot;, &quot;STORENAME&quot;: &quot;BOULEVARD BERLIN&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_9" elementType="Argument">
+              <stringProp name="Argument.name">loc_9</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;9001&quot;, &quot;GPSLOCATION&quot;: &quot;46.227638,2.213749&quot;, &quot;STORENAME&quot;: &quot;FORUM DES HALLES&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loc_10" elementType="Argument">
+              <stringProp name="Argument.name">loc_10</stringProp>
+              <stringProp name="Argument.value">{&quot;STOREID&quot;: &quot;10001&quot;, &quot;GPSLOCATION&quot;: &quot;23.634501,-102.552784&quot;, &quot;STORENAME&quot;: &quot;IGUATEMI&quot;}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="StoreId Variable" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="store_1" elementType="Argument">
+              <stringProp name="Argument.name">store_1</stringProp>
+              <stringProp name="Argument.value">1001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_2" elementType="Argument">
+              <stringProp name="Argument.name">store_2</stringProp>
+              <stringProp name="Argument.value">2001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_3" elementType="Argument">
+              <stringProp name="Argument.name">store_3</stringProp>
+              <stringProp name="Argument.value">3001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_4" elementType="Argument">
+              <stringProp name="Argument.name">store_4</stringProp>
+              <stringProp name="Argument.value">4001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_5" elementType="Argument">
+              <stringProp name="Argument.name">store_5</stringProp>
+              <stringProp name="Argument.value">5001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_6" elementType="Argument">
+              <stringProp name="Argument.name">store_6</stringProp>
+              <stringProp name="Argument.value">6001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_7" elementType="Argument">
+              <stringProp name="Argument.name">store_7</stringProp>
+              <stringProp name="Argument.value">7001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_8" elementType="Argument">
+              <stringProp name="Argument.name">store_8</stringProp>
+              <stringProp name="Argument.value">8001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_9" elementType="Argument">
+              <stringProp name="Argument.name">store_9</stringProp>
+              <stringProp name="Argument.value">9001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="store_10" elementType="Argument">
+              <stringProp name="Argument.name">store_10</stringProp>
+              <stringProp name="Argument.value">10001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Controller" enabled="true">
+          <stringProp name="ForeachController.inputVal">number</stringProp>
+          <stringProp name="ForeachController.returnVal">number</stringProp>
+          <boolProp name="ForeachController.useSeparator">true</boolProp>
+          <stringProp name="ForeachController.startIndex">0</stringProp>
+          <stringProp name="ForeachController.endIndex">10</stringProp>
+        </ForeachController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Kafka - POST Locations" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;records&quot;: [&#xd;
+        {&#xd;
+        	&quot;key&quot;: ${__V(store_${number})},&#xd;
+          &quot;value&quot;: ${__V(loc_${number})}&#xd;
+        }&#xd;
+    ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host_kafka}</stringProp>
+            <stringProp name="HTTPSampler.port">${port_kafka}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${proto_kafka}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/topics/${topic_kafka}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/vnd.kafka.json.v2+json</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value"> application/vnd.kafka.v2+json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Verify 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Kafka Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

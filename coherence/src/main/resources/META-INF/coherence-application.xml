@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coherence-application xmlns="http://xmlns.oracle.com/coherence/coherence-application" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-application http://xmlns.oracle.com/coherence/coherence-application/1.0/coherence-application.xsd">
+    <cache-configuration-ref>META-INF/datagrid-coherence-cache-config.xml</cache-configuration-ref>
+</coherence-application>

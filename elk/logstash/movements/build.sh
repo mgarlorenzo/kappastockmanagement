@@ -1,0 +1,1 @@
+docker build -t jbcn/logstash-movements:1.0.0 .

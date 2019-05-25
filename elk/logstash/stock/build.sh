@@ -1,0 +1,1 @@
+docker build -t jbcn/logstash-stock:1.0.0 .
