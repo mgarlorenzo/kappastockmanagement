@@ -16,6 +16,10 @@ Demo of stock management with a kappa architecture approach:
 
 ![Stock Management Architecture](images/DataFlow.png "Architecture Diagram")
 
+### Data Visualization
+
+![Stock Management Visualization](images/StockDashboard.png "Kibana Dashboard")
+
 Stock event processing flow design:
 
 - Change events source with items movements
