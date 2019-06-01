@@ -19,7 +19,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <springfox.version>2.7.0</springfox.version>
+        <springfox.version>2.9.2</springfox.version>
         <jacks.version>2.6.4</jacks.version>
         <confluent.version>2.2.0</confluent.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
