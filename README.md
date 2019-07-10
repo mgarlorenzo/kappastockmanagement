@@ -118,3 +118,7 @@ Containers are connected to jbcm-net (docker bridge network)
 
     docker-compose -f docker-compose-2.yml down
     docker-compose -f docker-compose-1.yml down
+## Authors
+
+* **Miguel García** - [Github - mgarlorenzo](https://github.com/mgarlorenzo)
+* **David Fernández** - [Github - davidfc89](https://github.com/davidfc89)
