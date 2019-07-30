@@ -19,7 +19,7 @@
         <logback.version>1.1.8</logback.version>
         <coherence.version>12.2.1-0-0</coherence.version>
         <gar.version>12.2.1-0-0</gar.version>
-        <docker.version>1.4.10</docker.version>
+        <docker.version>1.4.12</docker.version>
         <docker.server.id>docker-hub</docker.server.id>
         <docker.image.name>jbcn/datagrid</docker.image.name>
         <common.version>1.0.0</common.version>
