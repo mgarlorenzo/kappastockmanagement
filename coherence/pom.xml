@@ -24,7 +24,7 @@
         <docker.image.name>jbcn/datagrid</docker.image.name>
         <common.version>1.0.0</common.version>
         <confluent.version>2.2.0</confluent.version>
-        <jackson.version>2.9.9</jackson.version>
+        <jackson.version>2.9.10.1</jackson.version>
     </properties>
 
     <dependencies>
