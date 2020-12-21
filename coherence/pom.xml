@@ -23,7 +23,7 @@
         <docker.server.id>docker-hub</docker.server.id>
         <docker.image.name>jbcn/datagrid</docker.image.name>
         <common.version>1.0.0</common.version>
-        <confluent.version>2.2.0</confluent.version>
+        <confluent.version>2.7.0</confluent.version>
         <jackson.version>2.9.9</jackson.version>
     </properties>
 
