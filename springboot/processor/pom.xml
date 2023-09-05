@@ -21,7 +21,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <springfox.version>2.7.0</springfox.version>
         <jacks.version>2.6.4</jacks.version>
-        <confluent.version>2.2.0</confluent.version>
+        <confluent.version>2.6.3</confluent.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <coherence.version>12.2.1-0-0</coherence.version>
         <docker.version>1.4.10</docker.version>
